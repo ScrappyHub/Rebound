@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "vault.ref.v1.schema.json",
+  "title": "vault.ref.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "object", "plaintext_sha256", "vault_version"],
+  "properties": {
+    "schema": { "const": "vault.ref.v1" },
+    "object": { "type": "string", "minLength": 1 },
+    "plaintext_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "vault_version": { "type": "string", "minLength": 1 }
+  }
+}

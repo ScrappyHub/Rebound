@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rebound.receive.receipt.v1.schema.json",
+  "title": "rebound.receive.receipt.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "packet_id", "ok", "sig", "manifest_sha256", "sha256sums_sha256"],
+  "properties": {
+    "schema": { "const": "rebound.receive.receipt.v1" },
+    "packet_id": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "ok": { "type": "boolean" },
+    "sig": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "ok"],
+      "properties": {
+        "mode": { "type": "string" },
+        "ok": { "type": "boolean" }
+      }
+    },
+    "manifest_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "sha256sums_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "moved_to": { "type": "string" }
+  }
+}

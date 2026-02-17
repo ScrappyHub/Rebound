@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rebound.transmit.intent.v1.schema.json",
+  "title": "rebound.transmit.intent.v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "packet_purpose", "vault_object", "plaintext_sha256", "use"],
+  "properties": {
+    "schema": { "const": "rebound.transmit.intent.v1" },
+    "packet_purpose": { "type": "string", "minLength": 1 },
+    "vault_object": { "type": "string", "minLength": 1 },
+    "plaintext_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "use": { "type": "string", "minLength": 1 },
+    "recipient_hint": { "type": "string" }
+  }
+}
